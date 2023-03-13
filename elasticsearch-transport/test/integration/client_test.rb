@@ -125,7 +125,7 @@ class Elasticsearch::Transport::ClientIntegrationTest < Elasticsearch::Test::Int
           @client.perform_request 'GET', '_nodes/_local'
         end
 
-        assert_raise Faraday::Error::ConnectionFailed do
+        assert_raise Faraday::ConnectionFailed do
           # Second hit fails
           @client.perform_request 'GET', '_nodes/_local'
         end
